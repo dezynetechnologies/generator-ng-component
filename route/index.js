@@ -26,6 +26,12 @@ Generator.prototype.askFor = function askFor() {
       name: 'route',
       message: 'What will the url of your route be?',
       default: '/' + name
+    },
+    {
+      type:'confirm',
+      name: 'menu',
+      message: 'Does this route appears in sidebar menu?',
+      default: true
     }
   ];
 
