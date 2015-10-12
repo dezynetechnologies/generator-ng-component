@@ -1,6 +1,6 @@
 {
   "name": "generator-ng-component",
-  "version": "0.0.10",
+  "version": "0.1.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -20,8 +20,10 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.17.0",
-    "chalk": "~0.4.0"
+    "chalk": "~0.4.0",
+    "lodash": "^3.10.1",
+    "underscore.string": "^3.2.2",
+    "yeoman-generator": "~0.20.3"
   },
   "devDependencies": {
     "chai": "^1.9.1",
@@ -30,9 +32,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha-test": "^0.10.2",
     "grunt-release": "^0.7.0",
-    "mocha": "*"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
+    "mocha": "*",
+    "yeoman-assert": "^2.0.0"
   }
 }

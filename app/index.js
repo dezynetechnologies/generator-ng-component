@@ -6,21 +6,23 @@ var chalk = require('chalk');
 
 var NgComponentGenerator = yeoman.generators.Base.extend({
 
-  info: function () {
+  initializing: function () {
     if (!this.options['skip-message']) {
-      console.log(chalk.magenta('You\'re using the fantastic NgComponent generator.\n'));
-      console.log(chalk.magenta('Initializing yo-rc.json configuration.\n'));
+      this.log(chalk.magenta('You\'re using the fantastic NgComponent generator.\n'));
+      this.log(chalk.magenta('Initializing yo-rc.json configuration.\n'));
     }
   },
 
-  saveConfig: function () {
-    this.config.defaults({
+  configuring: function () {
+    var config = {
       'routeDirectory': this.options.routeDirectory || 'app/components/',
       'directiveDirectory': this.options.directiveDirectory || 'app/components/',
       'filterDirectory': this.options.filterDirectory || 'app/components/',
       'serviceDirectory': this.options.serviceDirectory || 'app/components/',
       'basePath': this.options.basePath || 'app',
       'moduleName': this.options.moduleName || '',
+      'modulePrompt': this.options.hasOwnProperty('modulePrompt') ?
+        this.options.modulePrompt : true,
       'filters': this.options.filters || ['uirouter', 'jasmine'],
       'extensions': this.options.extensions || ['js', 'html', 'scss'],
       'directiveSimpleTemplates': this.options.directiveSimple || '',
@@ -32,7 +34,14 @@ var NgComponentGenerator = yeoman.generators.Base.extend({
       'decoratorTemplates': this.options.decorator || '',
       'providerTemplates': this.options.provider || '',
       'routeTemplates': this.options.route || ''
-    });
+    };
+
+    if (this.options.forceConfig) {
+      this.config.set(config);
+      this.config.forceSave();
+    } else {
+      this.config.defaults(config);
+    }
   }
 });
 

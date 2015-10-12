@@ -20,4 +20,3 @@ angular.module('<%= scriptAppName %>')
     Menus.addSubMenuItem('sidebar', '<%= name %>', 'New', '<%= route %>');
 
   }
-

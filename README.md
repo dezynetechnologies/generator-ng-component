@@ -9,10 +9,10 @@ Modified by Dezyne Technologies Pvt Ltd
 
 ### Yeoman Generators
 
-To install generator-ng-component from npm, run:
+Install `yo` and `generator-ng-component` from npm:
 
 ```
-$ npm install -g generator-ng-component
+$ npm install -g yo generator-ng-component
 ```
 
 Finally, initiate the generator:
